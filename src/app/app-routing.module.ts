@@ -10,14 +10,12 @@ const routes: Routes = [
   { path: 'workout', loadChildren: './workout/workout.module#WorkoutPageModule' },
   { path: 'workout-add', loadChildren: './workout/workout-add/workout-add.module#WorkoutAddPageModule' },
   { path: 'workout-edit', loadChildren: './workout/workout-edit/workout-edit.module#WorkoutEditPageModule' },
-  { path: 'alarm', loadChildren: './alarm/alarm.module#AlarmPageModule' },
-  { path: 'alarm-add', loadChildren: './alarm/alarm-add/alarm-add.module#AlarmAddPageModule' },
-  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
-  { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
   { path: 'workout-play', loadChildren: './workout/workout-play/workout-play.module#WorkoutPlayPageModule' },
-  { path: 'about', loadChildren: './about/about.module#AboutPageModule' },
+  { path: 'alarm', loadChildren: './alarm/alarm.module#AlarmPageModule' },
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
   { path: 'profile-edit', loadChildren: './profile/profile-edit/profile-edit.module#ProfileEditPageModule' },
-  { path: 'alarm-edit', loadChildren: './alarm/alarm-edit/alarm-edit.module#AlarmEditPageModule' }
+  { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
+  { path: 'about', loadChildren: './about/about.module#AboutPageModule' },
 ];
 
 @NgModule({
