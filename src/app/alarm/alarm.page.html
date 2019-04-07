@@ -1,0 +1,26 @@
+<ion-header>
+<ion-toolbar color="dark">
+	  <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Alarms 
+    </ion-title>    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+		<ion-item *ngFor="let alarm of alarms">
+      <table><tr><th><h2>{{alarm.time}} &nbsp;&nbsp;</h2></th><td><table><tr><td>{{alarm.title}}</td></tr><tr><td><sub>{{alarm.days}}</sub></td></tr></table></td></tr></table>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <ion-button (click)="edit(alarm)" color="light">edit</ion-button> 
+      <ion-button (click)="delete(alarm)" color="light">Delete</ion-button>
+    </ion-item>
+	</ion-list>
+  <ion-col>
+      <div class="ion-text-center">
+        <ion-button (click)="add()" color="light">Add Alarms</ion-button>
+      </div>
+  </ion-col>
+</ion-content>
