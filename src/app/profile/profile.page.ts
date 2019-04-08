@@ -37,23 +37,35 @@ export class ProfilePage implements OnInit {
 		// 	  		times: 1,
 		//   	})
 		// });
-		this.db.doc(`users/`+this.userId)
-		  .update({})
-		  .then(() => {
-		    // update successful (document exists)
-		  })
-		  .catch((error) => {
-		    // console.log('Error updating user', error); // (document does not exists)
-		    this.db.collection(`users/`+this.userId+`/userProfile`).add({
+		// this.db.doc(`users/`+this.userId)
+		//   .update({})
+		//   .then(() => {
+		//     // update successful (document exists)
+		//   })
+		//   .catch((error) => {
+		//     // console.log('Error updating user', error); // (document does not exists)
+		//     this.db.collection(`users/`+this.userId+`/userProfile`).add({
+		// 	  		age : "",
+		// 	  		weight: "",
+		// 	  		height: "",
+		// 	  		times: 1,
+		//   	})
+ 	// 	 });
+ 		this.db.firestore.doc(`users/`+this.userId).get()
+      .then(docSnapshot => {
+        if (docSnapshot.exists === true) {
+        	console.log(docSnapshot.exists);
+          this.db.collection(`users/`+this.userId+`/userProfile`).add({
 			  		age : "",
 			  		weight: "",
 			  		height: "",
 			  		times: 1,
 		  	})
- 		 });
-  		}
-  		
-  		})
+        }
+        });
+  	}
+    })
+
   }
 
   ngOnInit() {  	
