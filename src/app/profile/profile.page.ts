@@ -29,7 +29,7 @@ export class ProfilePage implements OnInit {
 		  	})
 		  	this.db.firestore.doc(`users/`+this.userId).get().then(data => { console.log(data) });
             console.log(this.db.firestore.doc(`users/`+this.userId).get());
-            return this.db.firestore.doc(`users/`+this.userId).get();
+            return this.db.firestore.doc(`users/`+this.userId).get(); 
         }
     })
     // // .then( data => {
