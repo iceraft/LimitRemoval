@@ -11,4 +11,19 @@
 
 <ion-content padding>
 	<firebase-ui></firebase-ui>
+	<div>
+	<ion-toolbar>
+	<ion-title>Your Workouts</ion-title>	
+	  <ion-buttons (click)="add()" slot="end">
+    	<ion-icon slot="icon-only" name="add"></ion-icon>
+	  </ion-buttons>
+	</ion-toolbar>
+	</div>
+    <br>
+    <br>
+	<div>
+	<ion-toolbar>
+	<ion-title>Other Workouts</ion-title>	
+	</ion-toolbar>
+	</div>
 </ion-content>

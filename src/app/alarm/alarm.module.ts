@@ -6,8 +6,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 
-import { environment } from 'src/environments/environment';
-
 import { AlarmPage } from './alarm.page';
 
 const routes: Routes = [

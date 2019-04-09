@@ -19,6 +19,8 @@ import { environment } from 'src/environments/environment';
 
 import { AlarmAddPageModule } from './alarm/alarm-add/alarm-add.module';
 import { AlarmEditPageModule } from './alarm/alarm-edit/alarm-edit.module';
+import { WorkoutAddPageModule } from './workout/workout-add/workout-add.module';
+//import { WorkoutPlayPageModule } from './alarm/alarm-play/alarm-play.module';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -43,6 +45,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
     AlarmAddPageModule,
     AlarmEditPageModule,
+    WorkoutAddPageModule,
+    // WorkoutPlayPageModule,
   ],
   providers: [
     StatusBar,

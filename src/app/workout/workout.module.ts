@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { WorkoutPage } from './workout.page';
 import { FirebaseUIModule } from 'firebaseui-angular';
 
+
 const routes: Routes = [
   {
     path: '',
