@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>workout_add</ion-title>
+    <ion-title>Add New Workout</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-<ion-button (click)="cancel()">Cancel</ion-button>
-</ion-content>
+	<ion-col>
+	<form [formGroup]="workoutForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Session Title</ion-label>
+      <ion-input type="text" formControlName="title" required></ion-input>
+    </ion-item>
+    <ion-item>
+	    <ion-label>Select Workout</ion-label>
+	    <ion-select>
+	      <ion-select-option *ngFor="let workout of workouts" value="{{workout.wName}}">{{workout.wName}}</ion-select-option>
+	    </ion-select>
+  	</ion-item>
+	<br />
+    <br />   	  
+      <div class="ion-text-center">
+        <ion-button (click)="cancel()" color="light">Cancel</ion-button>
+        &nbsp;
+        <ion-button type="submit" color ="success">Add</ion-button>
+      </div>
+    </form>
+  </ion-col>
+
+</ion-content> 

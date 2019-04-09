@@ -10,7 +10,43 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./workout-add.page.scss'],
 })
 export class WorkoutAddPage implements OnInit {
-
+  workouts: any[] = [
+    {
+      wName: 'Crunch',
+      wType: 'Interval'
+    },
+    {
+      wName: 'Plank',
+      wType: 'Time'
+    },
+    {
+      wName: 'Pullup',
+      wType: 'Interval'
+    },
+     {
+      wName: 'Squats',
+      wType: 'Interval'
+    },
+    {
+      wName: 'Rope Skip',
+      wType: 'Time'
+    },
+    {
+      wName: 'Wall Sit',
+      wType: 'Time'
+    },
+    {
+      wName: 'Bicycle Crunch',
+      wType: 'Interval'
+    },
+    {
+      wName: 'Burpee',
+      wType: 'Interval'
+    },
+    {
+      wName: 'Pushup',
+      wType: 'Interval'
+    },]
   constructor(private modalCtrl: ModalController,
               public afAuth: AngularFireAuth,
               public db: AngularFirestore,
