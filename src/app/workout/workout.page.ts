@@ -14,19 +14,21 @@ import { WorkoutAddPage } from './workout-add/workout-add.page';
 })
 export class WorkoutPage implements OnInit {
 
-  alarms=[];
+  myRegiments: [];
+  regiments: [];
 
   constructor(public afAuth: AngularFireAuth,
   			      public mc: ModalController,	
               public db: AngularFirestore,) { }
 
   ngOnInit() {
-    this.db.collection('alarms').stateChanges().subscribe(serverAlarms =>{
-      this.alarms=[];
-      serverAlarms.forEach(a=>{
-        let alarm:any = a.payload.doc.data();
-        alarm.id = a.payload.doc.id;
-        this.alarms.push(alarm);
+    this.db.collection('regiments').snapshotChanges().subscribe(serverRegi =>{
+      this.regiments=[];
+      serverRegi.forEach(a=>{
+        // let regiment:any = a.payload.doc.data();
+        // regiment.id = a.payload.doc.id;
+        //type never wtf is that shit bruh?
+        //this.regiments.push(a.payload.doc.data());
       });
     });
   }

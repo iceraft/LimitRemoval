@@ -11,6 +11,7 @@
 
 <ion-content padding>
 	<firebase-ui></firebase-ui>
+	<div *ngIf="afAuth.auth.currentUser">
 	<div>
 	<ion-toolbar>
 	<ion-title>Your Workouts</ion-title>	
@@ -25,5 +26,6 @@
 	<ion-toolbar>
 	<ion-title>Other Workouts</ion-title>	
 	</ion-toolbar>
+	</div>
 	</div>
 </ion-content>
