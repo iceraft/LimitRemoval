@@ -20,20 +20,22 @@ export class ProfilePage implements OnInit {
         if(user) {
             this.user = user;
             this.userId = user.uid;
-            
-	  		this.db.collection(`users/`+this.userId+`/userProfile`).add({
-			  		age : "",
-			  		weight: "",
-			  		height: "",
-			  		times: 1,
-		  	})
-		  	this.db.firestore.doc(`users/`+this.userId).get().then(data => { console.log(data) });
+            // console.log(this.user);
+            // console.log(this.userId);
+	  		// this.db.collection(`users/`+this.userId+`/userProfile`).add({
+			  // 		age : "",
+			  // 		weight: "",
+			  // 		height: "",
+			  // 		times: 1,
+		  	// })
+
+		  	console.log(this.db.firestore.doc('users/'+this.userId).get());
             console.log(this.db.firestore.doc(`users/`+this.userId).get());
             return this.db.firestore.doc(`users/`+this.userId).get(); 
         }
     })
     // // .then( data => {
-    //     // db.firestore.doc return data should be here
+    //     // db.firestore.doc return data should be heres
     //     console.log(data, data.exists);
     // });
 
