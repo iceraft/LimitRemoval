@@ -19,6 +19,22 @@
     	<ion-icon slot="icon-only" name="add"></ion-icon>
 	  </ion-buttons>
 	</ion-toolbar>
+	<ion-item *ngFor="let regiment of regiments">
+      <table>
+      	<tr>
+      		<th><h2> &nbsp;&nbsp;</h2></th>
+      		<td><table>
+      			<tr>
+      				<td>{{regiment.createdBy}}</td>
+      			</tr>
+      			<tr>
+      				<td><sub>{{regiment.session}}</sub></td>
+      			</tr>
+      		</table></td>
+      	</tr>
+      </table>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </ion-item>
 	</div>
     <br>
     <br>
