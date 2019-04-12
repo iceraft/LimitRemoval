@@ -28,8 +28,8 @@
   	<tr *ngFor="let control of workoutForm.controls | keyvalue">
   	<td>	
   	<!-- <ion-select placeholder="Exercise" formControl="control.key" (change)="selectYpe({{workout.wType}})"> -->
-	<ion-select placeholder="Exercise" formControl="control.key" (ionChange)="onChange(selectYpe(workout))">
-	      <ion-select-option *ngFor="let workout of workouts" value="{{workout.wName}}">{{workout.wName}}</ion-select-option>
+	<ion-select placeholder="Exercise" formControl="{{control.key}}" (ionChange)="onChange(selectYpe(control.key.value))">
+	      <ion-select-option *ngFor="let workout of workouts" value="{{workout.wType}}">{{workout.wName}}</ion-select-option>
 	</ion-select>
  	 </td><td>
   	 <ion-item >

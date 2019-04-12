@@ -61,7 +61,7 @@ export class WorkoutAddPage implements OnInit {
 
   ngOnInit() {
      this.workoutForm = this.fb.group({
-            title: ['', Validators.compose([Validators.required])],
+            title: [''],
         });
   
         // hardcode adding regiments
