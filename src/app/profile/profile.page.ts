@@ -20,17 +20,33 @@ export class ProfilePage implements OnInit {
         if(user) {
             this.user = user;
             this.userId = user.uid;
-            // console.log(this.user);
-            // console.log(this.userId);
+            console.log(this.user);
+            console.log(this.userId);
 	  		// this.db.collection(`users/`+this.userId+`/userProfile`).add({
 			  // 		age : "",
 			  // 		weight: "",
 			  // 		height: "",
 			  // 		times: 1,
 		  	// })
+			this.db.collection(`users`, ref => ref.where('users', "==", this.userId)).snapshotChanges().subscribe(res => {
+			    if (res.length > 0)
+			    {
+			    	console.log(res);
+			    console.log(this.db.collection(`users`));
+			    console.log(ref=> ref.where('users', "==", this.userId));	
+			    console.log("Match found.");
+			    }
+			    else
+			    {
+			    				    	console.log(res);
+			    console.log(this.db.collection(`users`));
+			    console.log(ref=> ref.where('users', "==", this.userId));	
+			    console.log("Does not exist.");
+			    }
+			});
 
-		  	console.log(this.db.firestore.doc('users/'+this.userId).get());
-            console.log(this.db.firestore.doc(`users/`+this.userId).get());
+		  	// console.log(this.db.firestore.doc('users/'+this.userId).get());
+     		//console.log(this.db.firestore.doc(`users/`+this.userId).get());
             return this.db.firestore.doc(`users/`+this.userId).get(); 
         }
     })
@@ -69,20 +85,22 @@ export class ProfilePage implements OnInit {
 		// // 	  		times: 1,
 		// //   	})
 		// // });
-		// // this.db.doc(`users/`+this.userId)
-		// //   .update({})
-		// //   .then(() => {
-		// //     // update successful (document exists)
-		// //   })
-		// //   .catch((error) => {
-		// //     // console.log('Error updating user', error); // (document does not exists)
-		// //     this.db.collection(`users/`+this.userId+`/userProfile`).add({
-		// // 	  		age : "",
-		// // 	  		weight: "",
-		// // 	  		height: "",
-		// // 	  		times: 1,
-		// //   	})
- 	// // 	 });
+		// this.db.doc(`users/`+this.userId)
+		//   .update({})
+		//   .then(() => {
+		//   	console.log("Match found.");
+		//     // update successful (document exists)
+		//   })
+		//   .catch((error) => {
+		//     // console.log('Error updating user', error); // (document does not exists)
+		//    //  this.db.collection(`users/`+this.userId+`/userProfile`).add({
+		// 	  // 		age : "",
+		// 	  // 		weight: "",
+		// 	  // 		height: "",
+		// 	  // 		times: 1,
+		//   	// })
+
+ 	// 	 });
  	// 	this.db.firestore.doc(`users/`+this.userId.id).get()
   //     .then(docSnapshot => {
   //       if(this.userId.id == "") {
