@@ -48,7 +48,10 @@ export class WorkoutAddPage implements OnInit {
       wType: 'Interval'
     },]
 
-    workoutForm: FormGroup;
+    agroupForm: FormGroup;
+    public workoutForm: FormGroup = new FormGroup({
+      workout1: new FormControl("",[Validators.compose([Validators.required])]),
+    });
     private count: number = 1;
     private anotherCount: number = 0;
 
@@ -60,8 +63,10 @@ export class WorkoutAddPage implements OnInit {
               private navParams: NavParams){}
 
   ngOnInit() {
-     this.workoutForm = this.fb.group({
-            title: [''],
+
+     this.agroupForm = this.fb.group({
+           title:  ['', Validators.compose([Validators.required])],
+           working: this.workoutForm,
         });
   
         // hardcode adding regiments
@@ -89,18 +94,24 @@ export class WorkoutAddPage implements OnInit {
 
   addControl(){
     this.count++;
-    this.workoutForm.addControl('workout' + this.count, new FormControl('', Validators.required));
+    this.workoutForm.addControl('workout' + this.count, new FormControl('', Validators.compose([Validators.required])));
   }
 
-  selectYpe(string){
- 
-    console.log(string);
+  selectType(control){   
+    console.log(control.key);
     // this.anotherCount++;
     // this.workoutForm.addControl('another' + this.anotherCount, new FormControl('', Validators.required));
   }
 
+  // showselected(selected_value)
+  //   {
+  //   console.log("selector: ", selected_value );
+  //   }
+
   removeControl(control){
+    console.log(control.key)
     this.workoutForm.removeControl(control.key);
+    this.count--;
     // this.workoutForm.removeControl(another.key);
   }
   // get workoutForms(){

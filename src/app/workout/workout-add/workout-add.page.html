@@ -6,10 +6,10 @@
 
 <ion-content padding>
 	<ion-col>
-	<form [formGroup]="workoutForm" (ngSubmit)="onSubmit()">
+	<form [formGroup]="agroupForm" (ngSubmit)="onSubmit()">
     <ion-item>
       <ion-label position="floating">Session Title</ion-label>
-      <ion-input type="text" formControlName="title" required></ion-input>
+      <ion-input type="text" formControlName="title"></ion-input>
     </ion-item>
 <!--     <div formArrayName="working">
     	<div *ngFor="let work of workoutForms.controls; let i=index" [formGroupName]="i"> -->
@@ -28,7 +28,7 @@
   	<tr *ngFor="let control of workoutForm.controls | keyvalue">
   	<td>	
   	<!-- <ion-select placeholder="Exercise" formControl="control.key" (change)="selectYpe({{workout.wType}})"> -->
-	<ion-select placeholder="Exercise" formControl="{{control.key}}" (ionChange)="onChange(selectYpe(control.key.value))">
+	<ion-select placeholder="Exercise" formControlName="{{control.key}}" (ionChange)="onChange(selectType(control))">
 	      <ion-select-option *ngFor="let workout of workouts" value="{{workout.wType}}">{{workout.wName}}</ion-select-option>
 	</ion-select>
  	 </td><td>
@@ -37,7 +37,21 @@
      </ion-item>
     </td>
  	</tr>
+<!--   <tr>
+    <td *ngIf="">
+      <ion-item>
+      <ion-label position="floating">Duration</ion-label>
+      <ion-input type="text" formControlName="title"></ion-input>
+    </ion-item>
+    </td>
+  </tr> -->
  	</table>
+<!--    <ion-item>
+    <ion-label class="ion-label">label</ion-label>
+    <ion-select [ngModel]="selected_value" (ionChange)="showselected(selected_value)" [ngModelOptions]="{standalone: true}">
+        <ion-select-option *ngFor="let workout of workouts" value="{{workout.wType}}">{{workout.wName}}</ion-select-option>
+  </ion-select>
+  </ion-item> -->
     </ion-list>
 	<br />
     <br />   	
